@@ -1,7 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
+import titleReducer from "./titleSlice";
+import contentReducer from "./contentSlice";
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    title: titleReducer,
+    content: contentReducer,
+  },
   devTools: process.env.NODE_ENV !== "production",
 });
 
