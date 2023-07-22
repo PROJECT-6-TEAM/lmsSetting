@@ -30,6 +30,7 @@ const ReplySection: FC<ReplySectionProps> = ({
           username="예시"
           role="수강생"
           comment={activeComment.text}
+          showFullComment={true}
         />
         {activeComment.replies.map((reply, index) => (
           <div key={index}>
@@ -38,6 +39,7 @@ const ReplySection: FC<ReplySectionProps> = ({
               username="예시"
               role="수강생"
               comment={reply}
+              showFullComment={true}
             />
           </div>
         ))}

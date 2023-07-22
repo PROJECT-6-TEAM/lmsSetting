@@ -34,7 +34,7 @@ const LectureComment = () => {
           강의 커뮤니티
         </h1>
         <button
-          className=" m-5 h-11 w-28 text-white rounded-md bg-blue-600"
+          className=" m-5 h-11 w-28 text-white rounded-md bg-blue-600 hover:bg-white hover:border hover:border-blue-600 hover:text-blue-600"
           onClick={() => setWriteModalOpen(true)}
         >
           작성
