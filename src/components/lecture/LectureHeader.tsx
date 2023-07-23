@@ -1,10 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const LectureHeader = () => {
   return (
     <header className="flex border-b border-gray-200 w-full h-40">
       <div className="w-1/12 h-full flex justify-center items-center">
-        <div className="w-full pr-12 pb-14">
+        <Link href="/classroom" className="w-full pr-12 pb-14">
           <Image
             src="/arrowLeft.svg"
             alt="뒤로가기"
@@ -12,7 +13,7 @@ const LectureHeader = () => {
             height={16}
             className="cursor-pointer float-right"
           />
-        </div>
+        </Link>
       </div>
       <div className="w-11/12 h-full flex flex-col justify-center">
         <div className="flex flex-col mb-1">
