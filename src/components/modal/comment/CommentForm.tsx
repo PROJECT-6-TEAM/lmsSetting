@@ -28,7 +28,7 @@ const CommentForm: FC<CommentFormProps> = ({ handleComment, handleClose }) => {
       <div className="flex w-full mb-2">
         <form onSubmit={handleSubmit} className="w-full flex pr-8">
           <textarea
-            className="w-11/12 h-10 p-2 resize-none border-none rounded text-black"
+            className="w-11/12 h-10 p-2 resize-none border-none rounded text-black outline-none"
             value={comment}
             onChange={handleInputChange}
             placeholder="댓글을 입력해주세요."
