@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import Layout from "../modal/Layout";
+import Layout from "../modal/common/Layout";
 import CommentForm from "../modal/comment/CommentForm";
 import Comment from "../modal/comment/Comment";
 

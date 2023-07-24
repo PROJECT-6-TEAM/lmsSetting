@@ -7,7 +7,9 @@ interface Comment {
 
 export const useLectureComment = () => {
   const [comments, setComments] = useState<Comment[]>([]);
-  const [activeCommentIndex, setActiveCommentIndex] = useState<number | null>(null);
+  const [activeCommentIndex, setActiveCommentIndex] = useState<number | null>(
+    null,
+  );
   const [isCommentModalOpen, setCommentModalOpen] = useState<boolean>(false);
 
   const handleComment = (text: string) => {
