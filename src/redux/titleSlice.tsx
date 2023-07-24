@@ -1,18 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
+interface TitleState {
+  inputTitle: string;
+}
 
-const initialState = {
+const initialState: TitleState = {
   inputTitle: "",
 };
-
 const titleSlice = createSlice({
   name: "title",
   initialState,
   reducers: {
     setInputTitle: (state, action) => {
-      return action.payload;
+      state.inputTitle = action.payload;
+    },
+    resetInputTitle: state => {
+      state.inputTitle = "";
     },
   },
 });
 
-export const { setInputTitle } = titleSlice.actions;
+export const { setInputTitle, resetInputTitle } = titleSlice.actions;
 export default titleSlice.reducer;

@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-const initialState = {
-  inputValue: "",
+interface ContentState {
+  inputContent: string;
+}
+const initialState: ContentState = {
+  inputContent: "",
 };
 
 const contentSlice = createSlice({
@@ -9,10 +11,13 @@ const contentSlice = createSlice({
   initialState,
   reducers: {
     setInputContent: (state, action) => {
-      return action.payload;
+      state.inputContent = action.payload;
+    },
+    resetInputContent: state => {
+      state.inputContent = "";
     },
   },
 });
 
-export const { setInputContent } = contentSlice.actions;
+export const { setInputContent, resetInputContent } = contentSlice.actions;
 export default contentSlice.reducer;
