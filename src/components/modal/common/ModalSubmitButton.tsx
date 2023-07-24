@@ -13,10 +13,10 @@ export const ModalSubmitButton: React.FC<ModalSubmitButtonProps> = ({
   };
 
   return (
-    <div className="text-right mb-[-20px]">
+    <div className="flex mb-[-20px]">
       <button
         type="button"
-        className="w-[107px] h-[45px] font-bold text-base bg-primary-80 text-white rounded-[10px]"
+        className="w-[107px] h-[45px] font-bold text-base bg-primary-80 text-white rounded-[10px] ml-auto"
         onClick={handleSubmitBtn}
       >
         {contents}
