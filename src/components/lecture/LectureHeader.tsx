@@ -7,7 +7,7 @@ const LectureHeader = () => {
       <div className="w-1/12 h-full flex justify-center items-center">
         <Link href="/classroom" className="w-full pr-12 pb-14">
           <Image
-            src="/arrowLeft.svg"
+            src="/images/arrow-left.svg"
             alt="뒤로가기"
             width={16}
             height={16}
