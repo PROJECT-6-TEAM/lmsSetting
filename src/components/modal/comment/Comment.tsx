@@ -29,8 +29,8 @@ const Comment: React.FC<CommentProps> = ({
         <div className="flex flex-col">
           <div className="flex items-center mb-1">
             <span className="font-semibold ">{username}</span>
-            <span className="text-md text-gray-400 font-light">
-              &#160;&#183; {role}
+            <span className="text-sm ml-1 text-gray-400 font-light">
+              &#183; {role}
             </span>
           </div>
           <div className="max-w-full">

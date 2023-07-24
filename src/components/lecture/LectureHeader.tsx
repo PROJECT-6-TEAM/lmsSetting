@@ -28,7 +28,7 @@ const LectureHeader = () => {
           <div className="w-7 h-7 bg-white border border-gray-300 rounded-full flex-shrink-0"></div>
           <div className="flex items-center ml-2">
             <span className=" text-sm font-semibold text-blue-500 ">이름</span>
-            <span className="text-sm text-gray-500">&#160;&#183; 역할</span>
+            <span className="text-sm ml-1 text-gray-500">&#183; 역할</span>
           </div>
         </div>
       </div>

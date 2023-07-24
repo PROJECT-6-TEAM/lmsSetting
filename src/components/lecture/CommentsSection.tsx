@@ -1,7 +1,7 @@
 import React, { FC } from "react";
-import Layout from "../Layout";
-import CommentForm from "./CommentForm";
-import Comment from "./Comment";
+import Layout from "../modal/Layout";
+import CommentForm from "../modal/comment/CommentForm";
+import Comment from "../modal/comment/Comment";
 
 interface Comment {
   text: string;
@@ -26,9 +26,9 @@ const CommentsSection: FC<CommentsSectionProps> = ({
   handleBtn,
 }) => {
   return (
-    <div>
+    <ul>
       {comments.map((comment, index) => (
-        <div
+        <li
           key={index}
           className="cursor-pointer rounded-md m-3"
           onClick={() => setActiveCommentIndex(index)}
@@ -39,7 +39,7 @@ const CommentsSection: FC<CommentsSectionProps> = ({
             role="수강생"
             comment={comment.text}
           />
-        </div>
+        </li>
       ))}
 
       {isWriteModalOpen && (
@@ -48,7 +48,7 @@ const CommentsSection: FC<CommentsSectionProps> = ({
           <CommentForm handleComment={handleComment} handleClose={handleBtn} />
         </Layout>
       )}
-    </div>
+    </ul>
   );
 };
 

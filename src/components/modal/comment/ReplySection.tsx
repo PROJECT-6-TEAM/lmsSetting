@@ -32,17 +32,19 @@ const ReplySection: FC<ReplySectionProps> = ({
           comment={activeComment.text}
           showFullComment={true}
         />
-        {activeComment.replies.map((reply, index) => (
-          <div key={index}>
-            <Comment
-              admin={role}
-              username="예시"
-              role="수강생"
-              comment={reply}
-              showFullComment={true}
-            />
-          </div>
-        ))}
+        <ul>
+          {activeComment.replies.map((reply, index) => (
+            <li key={index} className="mt-2">
+              <Comment
+                admin={role}
+                username="예시"
+                role="수강생"
+                comment={reply}
+                showFullComment={true}
+              />
+            </li>
+          ))}
+        </ul>
         <CommentForm
           handleComment={reply => {
             handleReply(reply);

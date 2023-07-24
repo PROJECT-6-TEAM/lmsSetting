@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-const LectureFooter = () => {
+const LectureNavigation = () => {
   return (
-    <footer className="flex justify-between items-center p-10 h-24 text-gray-500">
+    <nav className="flex justify-between items-center p-10 h-24 text-gray-500">
       <button className="flex items-center cursor-pointer">
       <Image
           src="/backwardStep.svg"
@@ -23,8 +23,8 @@ const LectureFooter = () => {
         />
         <span className="text-sm m-2">다음강의</span>
       </button>
-    </footer>
+    </nav>
   );
 };
 
-export default LectureFooter;
+export default LectureNavigation;

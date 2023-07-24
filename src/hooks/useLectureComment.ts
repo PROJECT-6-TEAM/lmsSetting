@@ -8,11 +8,11 @@ interface Comment {
 export const useLectureComment = () => {
   const [comments, setComments] = useState<Comment[]>([]);
   const [activeCommentIndex, setActiveCommentIndex] = useState<number | null>(null);
-  const [isWriteModalOpen, setWriteModalOpen] = useState(false);
+  const [isCommentModalOpen, setCommentModalOpen] = useState<boolean>(false);
 
   const handleComment = (text: string) => {
     setComments([...comments, { text, replies: [] }]);
-    setWriteModalOpen(false);
+    setCommentModalOpen(false);
   };
 
   const handleReply = (text: string) => {
@@ -28,17 +28,17 @@ export const useLectureComment = () => {
   };
 
   const openCommentModal = () => {
-    setWriteModalOpen(true);
+    setCommentModalOpen(true);
   };
 
   const closeCommentModal = () => {
-    setWriteModalOpen(false);
+    setCommentModalOpen(false);
   };
 
   return {
     comments,
     activeCommentIndex,
-    isWriteModalOpen,
+    isCommentModalOpen,
     handleComment,
     handleReply,
     setActiveCommentIndex,
