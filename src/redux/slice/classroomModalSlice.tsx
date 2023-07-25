@@ -1,25 +1,24 @@
-// modalSlice.ts
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface ModalState {
-  lectureTypeModal: boolean;
-  noteModal: boolean;
-  linkModal: boolean;
-  videoFileModal: boolean;
-  lectureDurationModal: boolean;
-  commnetModal: boolean;
-  replyCommnetModal: boolean;
+  lectureTypeModalOpen: boolean;
+  noteModalOpen: boolean;
+  linkModalOpen: boolean;
+  videoFileModalOpen: boolean;
+  lectureDurationModalOpen: boolean;
+  commentModalOpen: boolean;
+  replyCommentModalOpen: boolean;
   [key: string]: boolean;
 }
 
 const initialState: ModalState = {
-  lectureTypeModal: false,
-  noteModal: false,
-  linkModal: false,
-  videoFileModal: false,
-  lectureDurationModal: false,
-  commnetModal: false,
-  replyCommnetModal: false,
+  lectureTypeModalOpen: false,
+  noteModalOpen: false,
+  linkModalOpen: false,
+  videoFileModalOpen: false,
+  lectureDurationModalOpen: false,
+  commentModalOpen: false,
+  replyCommentModalOpen: false,
 };
 
 const classroomModalSlice = createSlice({

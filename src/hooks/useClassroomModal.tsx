@@ -5,20 +5,26 @@ import { setModalVisibility } from "@/redux/slice/classroomModalSlice";
 const useClassroomModal = () => {
   const dispatch = useDispatch();
 
-  const addLectureModal = useSelector(
-    (state: RootState) => state.classroomModal.lectureTypeModal,
+  const lectureTypeModalOpen = useSelector(
+    (state: RootState) => state.classroomModal.lectureTypeModalOpen,
   );
-  const addNoteModal = useSelector(
-    (state: RootState) => state.classroomModal.noteModal,
+  const noteModalOpen = useSelector(
+    (state: RootState) => state.classroomModal.noteModalOpen,
   );
-  const addLinkModal = useSelector(
-    (state: RootState) => state.classroomModal.linkModal,
+  const linkModalOpen = useSelector(
+    (state: RootState) => state.classroomModal.linkModalOpen,
   );
-  const addVideoModal = useSelector(
-    (state: RootState) => state.classroomModal.videoFileModal,
+  const videoFileModalOpen = useSelector(
+    (state: RootState) => state.classroomModal.videoFileModalOpen,
   );
-  const lectureDurationModal = useSelector(
-    (state: RootState) => state.classroomModal.lectureDurationModal,
+  const lectureDurationModalOpen = useSelector(
+    (state: RootState) => state.classroomModal.lectureDurationModalOpen,
+  );
+  const commentModalOpen = useSelector(
+    (state: RootState) => state.classroomModal.commentModalOpen,
+  );
+  const replyCommentModalOpen = useSelector(
+    (state: RootState) => state.classroomModal.replyCommentModalOpen,
   );
 
   const handleModalMove = (openModalName: string, closeModalName: string) => {
@@ -27,11 +33,13 @@ const useClassroomModal = () => {
   };
 
   return {
-    addLectureModal,
-    addNoteModal,
-    addLinkModal,
-    addVideoModal,
-    lectureDurationModal,
+    lectureTypeModalOpen,
+    noteModalOpen,
+    linkModalOpen,
+    videoFileModalOpen,
+    lectureDurationModalOpen,
+    commentModalOpen,
+    replyCommentModalOpen,
     handleModalMove,
   };
 };
