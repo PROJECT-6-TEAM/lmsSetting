@@ -15,8 +15,7 @@ const TypeOfLecture: FC<TypeOfLectureProps> = ({ type, content }) => {
     case "NOTE":
       return <NoteLecture content={content} />;
     case "LINK":
-      const linkKey = content.split("v=")[1];
-      return <LinkLecture content={linkKey} />;
+      return <LinkLecture content={content} />;
     default:
       return <div>Invalid lecture type</div>;
   }

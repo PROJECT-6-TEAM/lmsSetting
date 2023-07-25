@@ -5,7 +5,8 @@ interface LinkLectureProps {
 }
 
 const LinkLecture: FC<LinkLectureProps> = ({ content }) => {
-  const src = `https://www.youtube.com/embed/${content}`;
+  const linkKey = content.split("v=")[1];
+  const src = `https://www.youtube.com/embed/${linkKey}`;
 
   return (
     <div className="linkContainer h-full w-full">
