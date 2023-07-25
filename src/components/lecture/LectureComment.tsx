@@ -16,7 +16,6 @@ const LectureComment: FC = () => {
     openCommentModal,
     closeCommentModal,
   } = useLectureComment();
-
   return (
     <section className="CommunityContainer bg-gray-100 w-1/4 float-right h-full">
       <header className=" m-3 flex content-center justify-between items-center">

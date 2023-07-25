@@ -5,6 +5,8 @@ interface LectureData {
   title: string;
   lectureType: string;
   videoLink: string;
+  startDate: Date;
+  endDate: Date;
 }
 
 const useFetchLecture = (): { data: LectureData | null, loading: boolean, error: string | null } => {

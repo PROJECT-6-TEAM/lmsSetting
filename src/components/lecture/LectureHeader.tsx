@@ -4,9 +4,31 @@ import { FC } from "react";
 
 interface LectureHeaderProps {
   title: string | undefined;
+  startDate?: Date;
+  endDate?: Date;
 }
 
-const LectureHeader: FC<LectureHeaderProps> = ({ title }) => {
+const formatDate = (date: string) => {
+  let [year, month, day] = date.split('-');
+  day = day.split('T')[0];
+
+  return `${year}.${month}.${day}`;
+};
+
+const LectureHeader: FC<LectureHeaderProps> = ({
+  title,
+  startDate,
+  endDate,
+}) => {
+  let startDateStr = '';
+  let endDateStr = '';
+  if (startDate) {
+    startDateStr = formatDate(startDate.toString());
+  }
+  if (endDate) {
+    endDateStr = formatDate(endDate.toString());
+  }
+
   return (
     <header className="flex border-b border-gray-200 w-full h-40">
       <div className="w-1/12 h-full flex justify-center items-center">
@@ -22,11 +44,9 @@ const LectureHeader: FC<LectureHeaderProps> = ({ title }) => {
       </div>
       <div className="w-11/12 h-full flex flex-col justify-center">
         <div className="flex flex-col mb-1">
-          <h1 className="text-xl font-semibold mb-1.5">
-            {title}
-          </h1>
+          <h1 className="text-xl font-semibold mb-1.5">{title}</h1>
           <span className="text-gray-700 text-xs">
-            [수강기간]2023.06.28~2023.08.11
+            [수강기간] {startDateStr} ~ {endDateStr}
           </span>
         </div>
         <div className="flex items-center mt-2">

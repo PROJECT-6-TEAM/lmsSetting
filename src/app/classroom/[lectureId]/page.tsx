@@ -14,10 +14,10 @@ const LectureHome: FC = () => {
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
-
+  
   return (
     <main className="lectuerContainer flex flex-col w-full h-full">
-      <LectureHeader title={data?.title} />
+      <LectureHeader title={data?.title} startDate={data?.startDate} endDate={data?.endDate} />
       <div className="mainContainer flex w-full h-screen">
         <div className="Container flex flex-col w-3/4">
           {data && <TypeOfLecture type={data.lectureType} content={data.videoLink} />}
