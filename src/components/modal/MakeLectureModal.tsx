@@ -1,13 +1,18 @@
 import { useState } from "react";
-import Layout from "./Layout";
+import Layout from "./common/Layout";
 import Image from "next/image";
+import ModalTitle from "./common/ModalTitle";
+import { ModalSubmitButton } from "./common/ModalSubmitButton";
 
 interface ModalProps {
+  modalTitle: string[];
   handleMakeModalBtn: () => void;
   handleLinkModalBtn: () => void;
+  handleCloseModal: () => void;
 }
 
 const MakeModal: React.FC<ModalProps> = ({
+  handleCloseModal,
   handleMakeModalBtn,
   handleLinkModalBtn,
 }) => {
@@ -29,12 +34,12 @@ const MakeModal: React.FC<ModalProps> = ({
       onLinkModalOpen();
     }
   };
+  const modalTitle: string[] = ["강의 만들기"];
+
   return (
     <Layout handleBtn={handleMakeModalBtn}>
       <div>
-        <span className="flex text-[20px] font-semibold top-[40px] left-[34px]">
-          강의 만들기
-        </span>
+        <ModalTitle modalTitle={modalTitle} />
         <div className="flex justify-between items-center mt-[26px] gap-[19.6px]  cursor-pointer">
           <div
             id="note"
@@ -91,6 +96,14 @@ const MakeModal: React.FC<ModalProps> = ({
         >
           다음
         </button>
+        {/* <ModalSubmitButton
+          handleCloseModal={
+            (onclick = () => {
+              onNextButtonClick();
+            })
+          }
+          contents="다음"
+        /> */}
       </div>
     </Layout>
   );

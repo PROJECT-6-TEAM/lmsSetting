@@ -1,13 +1,17 @@
 import { useSelector, useDispatch } from "react-redux";
 import { setInputContent } from "@/redux/contentSlice";
 import { setInputTitle } from "@/redux/titleSlice";
-import Layout from "./Layout";
+import Layout from "./common/Layout";
 import Image from "next/image";
+import ModalTitle from "./common/ModalTitle";
+import { ModalSubmitButton } from "./common/ModalSubmitButton";
 
 interface ModalProps {
+  modalTitle: string[];
   handleLinkModalBtn: () => void;
   handleDurationModalBtn: () => void;
   handleMakeModalBtn: () => void;
+  handleCloseModal: () => void;
 }
 
 const LinkModal: React.FC<ModalProps> = ({
@@ -38,14 +42,11 @@ const LinkModal: React.FC<ModalProps> = ({
       setInputContent(value.startsWith("http://") ? value : "http://" + value),
     );
   };
+  const modalTitle: string[] = ["강의 만들기", "링크 만들기"];
   return (
     <Layout handleBtn={onLinkModalClose}>
       <div className="text-left">
-        <span className="flex text-[20px] font-semibold top-[33px] left-[34px] gap-[10px]">
-          강의 만들기
-          <Image src="/next-mark.svg" alt="next" width={7} height={10} />
-          링크 만들기
-        </span>
+        <ModalTitle modalTitle={modalTitle} />
         <div className="flex items-center py-[20px]">
           <input
             type="text"
@@ -70,6 +71,10 @@ const LinkModal: React.FC<ModalProps> = ({
         >
           다음
         </button>
+        {/* <ModalSubmitButton
+          handleCloseModal={onDurationModalOpen}
+          contents="다음"
+        /> */}
       </div>
     </Layout>
   );
