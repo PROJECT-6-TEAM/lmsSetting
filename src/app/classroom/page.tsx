@@ -1,27 +1,18 @@
-"use client";
-import { useState } from "react";
+'use client'
+import Aside from "@/components/classroom/Aside"
+import ClassContent from "@/components/classroom/ClassContent"
 
-const Contents: React.FC = () => {
-  const [isModal, setIsModal] = useState<boolean>(false);
-  const handleBtn = () => {
-    setIsModal(!isModal);
-  };
-
+const Classroom = () => {
+  
   return (
-    <div>
-      <button
-        type="button"
-        className="w-44 h-16 border border-solid border-black p-3 m-7 box-border active:border-2 active:bg-slate-300"
-        onClick={handleBtn}
-      >
-        영상강의 만들기
-      </button>
-
-      {/* 버튼 클릭시 해당하는 모달창을 띄워서 확인하시면 됩니다 */}
-      {/* 예시 */}
-      {/* {isModal && <AddContents handleBtn={handleBtn} />} */}
+    <div className="w-screen h-screen flex justify-center">
+      <section className="w-4/5 h-screen flex">
+        <Aside/>
+        <ClassContent/>
+      </section>
     </div>
-  );
-};
+  )
+}
 
-export default Contents;
+export default Classroom
+
