@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { closeModal } from "@/redux/slice/classroomModalSlice";
 
 interface Comment {
   text: string;
@@ -6,13 +8,15 @@ interface Comment {
 }
 
 export const useLectureComment = () => {
+  const dispatch = useDispatch();
   const [comments, setComments] = useState<Comment[]>([]);
-  const [activeCommentIndex, setActiveCommentIndex] = useState<number | null>(null);
-  const [isCommentModalOpen, setCommentModalOpen] = useState<boolean>(false);
+  const [activeCommentIndex, setActiveCommentIndex] = useState<number | null>(
+    null,
+  );
 
   const handleComment = (text: string) => {
     setComments([...comments, { text, replies: [] }]);
-    setCommentModalOpen(false);
+    dispatch(closeModal());
   };
 
   const handleReply = (text: string) => {
@@ -23,27 +27,11 @@ export const useLectureComment = () => {
     }
   };
 
-  const closeReplySection = () => {
-    setActiveCommentIndex(null);
-  };
-
-  const openCommentModal = () => {
-    setCommentModalOpen(true);
-  };
-
-  const closeCommentModal = () => {
-    setCommentModalOpen(false);
-  };
-
   return {
     comments,
     activeCommentIndex,
-    isCommentModalOpen,
     handleComment,
     handleReply,
     setActiveCommentIndex,
-    closeReplySection,
-    openCommentModal,
-    closeCommentModal,
   };
 };
