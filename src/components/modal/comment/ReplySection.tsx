@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, use, useState } from "react";
 import Layout from "../Layout";
 import CommentForm from "./CommentForm";
 import Comment from "./Comment";
@@ -46,6 +46,7 @@ const ReplySection: FC<ReplySectionProps> = ({
           ))}
         </ul>
         <CommentForm
+          isReply={true}
           handleComment={reply => {
             handleReply(reply);
           }}

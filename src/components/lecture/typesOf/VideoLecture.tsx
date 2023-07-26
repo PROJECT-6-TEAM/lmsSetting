@@ -1,6 +1,11 @@
-const LectureVideo = () => {
-  const videoId = "3vhA8njtoQg";
-  const src = `https://www.youtube.com/embed/${videoId}`;
+import React, { FC } from 'react';
+
+interface VideoLectureProps {
+    content: string;
+}
+
+const VideoLecture: FC<VideoLectureProps> = ({ content }) => {
+  const src = `https://www.youtube.com/embed/${content}`;
 
   return (
     <div className="videoContainer h-full w-full">
@@ -15,4 +20,4 @@ const LectureVideo = () => {
   );
 };
 
-export default LectureVideo;
+export default VideoLecture;

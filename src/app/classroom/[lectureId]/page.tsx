@@ -3,17 +3,24 @@
 import React, { FC } from "react";
 
 import LectureHeader from "@/components/lecture/LectureHeader";
-import LectureVideo from "@/components/lecture/LectureVideo";
+import TypeOfLecture from "@/components/lecture/typesOf/TypeOfLecture";
 import LectureComment from "@/components/lecture/LectureComment";
 import LectureFooter from "@/components/lecture/LectureNavigation";
 
+import useFetchLecture from "@/hooks/useFetchLecture";
+
 const LectureHome: FC = () => {
+  const { data, loading, error } = useFetchLecture();
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+  
   return (
     <main className="lectuerContainer flex flex-col w-full h-full">
-      <LectureHeader />
+      <LectureHeader title={data?.title} startDate={data?.startDate} endDate={data?.endDate} />
       <div className="mainContainer flex w-full h-screen">
         <div className="Container flex flex-col w-3/4">
-          <LectureVideo />
+          {data && <TypeOfLecture type={data.lectureType} content={data.videoLink} />}
           <LectureFooter />
         </div>
         <LectureComment />
