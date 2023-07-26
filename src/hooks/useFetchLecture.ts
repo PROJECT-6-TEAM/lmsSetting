@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
-
+import { fetchClient } from '@/api';
 interface LectureData {
   title: string;
   lectureType: string;
@@ -20,9 +20,9 @@ const useFetchLecture = (): { data: LectureData | null, loading: boolean, error:
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`https://us-central1-lms-team-6.cloudfunctions.net/getLecture?lectureId=${lectureId}`);
-        const data: LectureData = await response.json();
-        setData(data);
+        const response = await useFetchLecture('MCnZE6LP0CmST4hmaHkO');
+
+        setData(response);
       } catch (error) {
         setError("Fetch 에러가 나타났습니다.");
       } finally {
