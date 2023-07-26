@@ -1,11 +1,12 @@
 import React, { FC } from 'react';
+import type { LectureContent } from "@/types/firebase.Types";
 
 interface LinkLectureProps {
-  content: string;
+  content: LectureContent;
 }
 
 const LinkLecture: FC<LinkLectureProps> = ({ content }) => {
-  const linkKey = content.split("v=")[1];
+  const linkKey = content.externalLink.split("v=")[1];
   const src = `https://www.youtube.com/embed/${linkKey}`;
 
   return (

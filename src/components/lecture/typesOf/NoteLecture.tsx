@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
+import type { LectureContent } from "@/types/firebase.Types";
 
 interface NoteLectureProps {
-    content: string;
+    content: LectureContent;
   }
 
 const NoteLecture: FC<NoteLectureProps> = ({ content }) => {
