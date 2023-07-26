@@ -2,8 +2,3 @@ dev
 node_modules
 .next
 .env
-
-types/
-functions/
-.firebaserc
-firebase.json
