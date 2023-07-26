@@ -22,7 +22,7 @@ const Layout: React.FC<ModalProps> = ({ children }) => {
         {children}
         <button type="button">
           <Image
-            src="images/close.svg"
+            src="/images/close.svg"
             alt="닫기 버튼"
             width={24}
             height={24}
