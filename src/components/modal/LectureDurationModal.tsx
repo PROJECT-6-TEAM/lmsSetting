@@ -6,41 +6,36 @@ import Layout from "./common/Layout";
 import { resetInputContent } from "@/redux/contentSlice";
 import { resetInputTitle } from "@/redux/titleSlice";
 import { useDispatch } from "react-redux";
-import Image from "next/image";
 import styles from "@/components/modal/DurationStyle.module.css";
-import ModalTitle from "./common/ModalTitle";
 import { ModalSubmitButton } from "./common/ModalSubmitButton";
+import useClassroomModal from "@/hooks/useClassroomModal";
+import { closeModal } from "@/redux/slice/classroomModalSlice";
 
-interface ModalProps {
-  modalTitle: string[];
-  handleDurationModalBtn: (startDate: Date, endDate: Date) => void;
-  handleLinkModalBtn: () => void;
-  handleCloseModal: () => void;
-}
-
-const DurationModal: React.FC<ModalProps> = ({
-  handleDurationModalBtn,
-  handleLinkModalBtn,
-}) => {
+const DurationModal: React.FC = ({}) => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const dispatch = useDispatch();
 
-  const onModalLinkOpen = () => {
-    handleDurationModalBtn(startDate, endDate);
-    handleLinkModalBtn();
+  const { handleModalMove } = useClassroomModal();
+  const lectureUpload = () => {
+    dispatch(closeModal());
   };
 
-  const onDurationModalClose = () => {
-    dispatch(resetInputTitle());
-    dispatch(resetInputContent());
-    handleDurationModalBtn(startDate, endDate);
-  };
-  const modalTitle: string[] = ["강의 만들기", "링크 만들기", "세부 설정"];
   return (
-    <Layout handleBtn={onModalLinkOpen}>
+    <Layout>
       <div className="text-left gap-[26px]">
-        <ModalTitle modalTitle={modalTitle} />
+        <div>
+          <button className="text-xl font-bold text-grayscale-100">
+            강의 만들기
+          </button>
+          <span className="relative pl-[17px] before:absolute before:top-[9px] before:left-0 before:w-[7px] before:h-[11px] before:bg-[url('/images/right-arrow.svg')]" />
+          <button className="text-xl font-bold text-grayscale-100">
+            링크 만들기
+          </button>
+          <span className="relative text-xl font-bold text-grayscale-100 pl-[17px] before:absolute before:top-[9px] before:left-0 before:w-[7px] before:h-[11px] before:bg-[url('/images/right-arrow.svg')]">
+            세부 설정
+          </span>
+        </div>
         {/* <span className="flex text-[20px] font-semibold  top-[32px] left-[34px] gap-[10px]">
           강의 만들기
           <Image src="/next-mark.svg" alt="next" width={7} height={10} />
@@ -77,18 +72,16 @@ const DurationModal: React.FC<ModalProps> = ({
               <div className={styles.slider}></div>
               <div className={styles.sliderBefore}></div>
             </label>
-            {/* <button
-              onClick={() => {
-                onDurationModalClose();
-              }}
+            <button
+              onClick={lectureUpload}
               className="rounded-md text-white bg-blue-500 w-[107px] h-[45px] ml-auto"
             >
               업로드
-            </button> */}
-            <ModalSubmitButton
+            </button>
+            {/* <ModalSubmitButton
               handleCloseModal={onDurationModalClose}
               contents="업로드"
-            />
+            /> */}
           </div>
         </div>
       </div>

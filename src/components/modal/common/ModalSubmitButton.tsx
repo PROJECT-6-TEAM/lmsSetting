@@ -7,9 +7,8 @@ export const ModalSubmitButton: React.FC<ModalSubmitButtonProps> = ({
   handleCloseModal,
   contents,
 }) => {
-  const handleSubmitBtn = () => {
+  const handleModalMove = () => {
     // 이 위치에 다음 모달로 넘기는 코드 추가 예정
-    handleCloseModal;
   };
 
   return (
@@ -17,7 +16,7 @@ export const ModalSubmitButton: React.FC<ModalSubmitButtonProps> = ({
       <button
         type="button"
         className="w-[107px] h-[45px] font-bold text-base bg-primary-80 text-white rounded-[10px] ml-auto"
-        onClick={handleSubmitBtn}
+        onClick={handleModalMove}
       >
         {contents}
       </button>

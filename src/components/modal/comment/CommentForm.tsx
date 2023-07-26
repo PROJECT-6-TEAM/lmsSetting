@@ -1,18 +1,19 @@
 import React, { FC, useState, ChangeEvent, FormEvent } from "react";
 
 interface CommentFormProps {
+  isReply?: boolean;
   handleComment: (comment: string) => void;
   handleClose: () => void;
 }
 
-const CommentForm: FC<CommentFormProps> = ({ handleComment, handleClose }) => {
+const CommentForm: FC<CommentFormProps> = ({ isReply, handleComment, handleClose }) => {
   const [comment, setComment] = useState("");
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     handleComment(comment);
     setComment("");
-    handleClose();
+    if(!isReply) handleClose();
   };
 
   const handleInputChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
