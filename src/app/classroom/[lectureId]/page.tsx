@@ -6,8 +6,7 @@ import LectureHeader from "@/components/lecture/LectureHeader";
 import TypeOfLecture from "@/components/lecture/typesOf/TypeOfLecture";
 import LectureComment from "@/components/lecture/LectureComment";
 import LectureFooter from "@/components/lecture/LectureNavigation";
-
-import useFetchLecture from "@/hooks/useFetchLecture";
+import { useFetchLectureList } from "@/hooks/reactQuery/useFetchLecture";
 
 const LectureHome: FC = () => {
   const { data, loading, error } = useFetchLecture();

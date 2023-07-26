@@ -1,7 +1,10 @@
 import React, { FC } from "react";
-import Layout from "../modal/common/Layout";
-import CommentForm from "../modal/comment/CommentForm";
-import Comment from "../modal/comment/Comment";
+import CommentForm from "../classroomModal/comment/CommentForm";
+import Comment from "../classroomModal/comment/Comment";
+import Layout from "../classroomModal/common/Layout";
+import useClassroomModal from "@/hooks/useClassroomModal";
+import { useDispatch } from "react-redux";
+import { setModalVisibility } from "@/redux/slice/classroomModalSlice";
 
 interface Comment {
   text: string;
@@ -13,8 +16,6 @@ interface CommentsSectionProps {
   comments: Comment[];
   handleComment: (comment: string) => void;
   setActiveCommentIndex: (index: number) => void;
-  isWriteModalOpen: boolean;
-  handleBtn: () => void;
 }
 
 const CommentsSection: FC<CommentsSectionProps> = ({
@@ -22,16 +23,25 @@ const CommentsSection: FC<CommentsSectionProps> = ({
   comments,
   handleComment,
   setActiveCommentIndex,
-  isWriteModalOpen,
-  handleBtn,
 }) => {
+  const dispatch = useDispatch();
+  const { commentModalOpen } = useClassroomModal();
+
   return (
     <ul>
       {comments.map((comment, index) => (
         <li
           key={index}
           className="cursor-pointer rounded-md m-3"
-          onClick={() => setActiveCommentIndex(index)}
+          onClick={() => {
+            setActiveCommentIndex(index);
+            dispatch(
+              setModalVisibility({
+                modalName: "replyCommentModalOpen",
+                visible: true,
+              }),
+            );
+          }}
         >
           <Comment
             admin={role}
@@ -42,10 +52,10 @@ const CommentsSection: FC<CommentsSectionProps> = ({
         </li>
       ))}
 
-      {isWriteModalOpen && (
-        <Layout handleBtn={handleBtn}>
+      {commentModalOpen && (
+        <Layout>
           <h2 className="text-xl font-bold">댓글 달기</h2>
-          <CommentForm handleComment={handleComment} handleClose={handleBtn} />
+          <CommentForm handleComment={handleComment} />
         </Layout>
       )}
     </ul>

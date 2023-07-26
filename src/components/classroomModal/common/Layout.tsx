@@ -1,8 +1,7 @@
-import { closeModal } from "@/redux/slice/classroomModalSlice";
-import { dispatch } from "d3";
-import Image from "next/image";
 import { ReactNode } from "react";
 import { useDispatch } from "react-redux";
+import { closeModal } from "@/redux/slice/classroomModalSlice";
+import Image from "next/image";
 
 interface ModalProps {
   children: ReactNode;
@@ -10,6 +9,7 @@ interface ModalProps {
 
 const Layout: React.FC<ModalProps> = ({ children }) => {
   const dispatch = useDispatch();
+
   return (
     <div
       className="fixed top-0 left-0 w-screen h-screen bg-black/30 flex flex-col justify-center items-center"
@@ -22,7 +22,7 @@ const Layout: React.FC<ModalProps> = ({ children }) => {
         {children}
         <button type="button">
           <Image
-            src="images/close.svg"
+            src="/images/close.svg"
             alt="닫기 버튼"
             width={24}
             height={24}

@@ -1,16 +1,12 @@
 interface ModalSubmitButtonProps {
-  handleCloseModal: () => void;
+  handleModalMove: () => void;
   contents: string;
 }
 
-export const ModalSubmitButton: React.FC<ModalSubmitButtonProps> = ({
-  handleCloseModal,
+const ModalSubmitButton: React.FC<ModalSubmitButtonProps> = ({
+  handleModalMove,
   contents,
 }) => {
-  const handleModalMove = () => {
-    // 이 위치에 다음 모달로 넘기는 코드 추가 예정
-  };
-
   return (
     <div className="flex mb-[-20px]">
       <button
@@ -23,3 +19,5 @@ export const ModalSubmitButton: React.FC<ModalSubmitButtonProps> = ({
     </div>
   );
 };
+
+export default ModalSubmitButton;
