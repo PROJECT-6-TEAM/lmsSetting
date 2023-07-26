@@ -1,6 +1,4 @@
 dev
-/.next/
-/out/
 node_modules
 .next
 .env
