@@ -9,8 +9,8 @@ interface LectureHeaderProps {
 }
 
 const formatDate = (date: string) => {
-  let [year, month, day] = date.split('-');
-  day = day.split('T')[0];
+  let [year, month, day] = date.split("-");
+  day = day.split("T")[0];
 
   return `${year}.${month}.${day}`;
 };
@@ -20,8 +20,8 @@ const LectureHeader: FC<LectureHeaderProps> = ({
   startDate,
   endDate,
 }) => {
-  let startDateStr = '';
-  let endDateStr = '';
+  let startDateStr = "";
+  let endDateStr = "";
   if (startDate) {
     startDateStr = formatDate(startDate.toString());
   }

@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { useParams } from 'next/navigation';
+import { useState, useEffect } from "react";
+import { useParams } from "next/navigation";
 
 interface LectureData {
   title: string;
@@ -9,7 +9,11 @@ interface LectureData {
   endDate: Date;
 }
 
-const useFetchLecture = (): { data: LectureData | null, loading: boolean, error: string | null } => {
+const useFetchLecture = (): {
+  data: LectureData | null;
+  loading: boolean;
+  error: string | null;
+} => {
   const params = useParams();
   const { lectureId } = params;
   const [data, setData] = useState<LectureData | null>(null);
@@ -20,7 +24,9 @@ const useFetchLecture = (): { data: LectureData | null, loading: boolean, error:
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`https://us-central1-lms-team-6.cloudfunctions.net/getLecture?lectureId=${lectureId}`);
+        const response = await fetch(
+          `https://us-central1-lms-team-6.cloudfunctions.net/getLecture?lectureId=${lectureId}`,
+        );
         const data: LectureData = await response.json();
         setData(data);
       } catch (error) {

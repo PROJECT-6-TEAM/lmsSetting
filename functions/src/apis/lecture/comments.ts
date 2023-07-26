@@ -2,7 +2,7 @@ import * as functions from "firebase-functions";
 import * as admin from "firebase-admin";
 import * as cors from "cors";
 
-const corsHandler = cors({origin: true});
+const corsHandler = cors({ origin: true });
 
 export const getComments = functions.https.onRequest((request, response) => {
   corsHandler(request, response, async () => {
@@ -18,7 +18,7 @@ export const getComments = functions.https.onRequest((request, response) => {
         response.send([]);
         return;
       }
-      const comments = commentsSnap.docs.map((doc) => {
+      const comments = commentsSnap.docs.map(doc => {
         const data = doc.data();
         data.createdAt = new Date(data.createdAt._seconds * 1000);
         data.updatedAt = new Date(data.updatedAt._seconds * 1000);

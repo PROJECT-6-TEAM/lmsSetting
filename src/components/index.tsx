@@ -1,35 +1,38 @@
-'use client'
-import React, { useState, ChangeEvent, useEffect, useRef } from 'react';
+"use client";
+import React, { useState, ChangeEvent, useEffect, useRef } from "react";
 
 const ImageUploadModal: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
   const [selectedImages, setSelectedImages] = useState<File[]>([]);
   const [imagePreviews, setImagePreviews] = useState<string[]>([]);
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
 
   const openModal = () => {
     setIsOpen(true);
   };
   const closeModal = () => {
-    setTitle('')
-    setContent('')
-    setSelectedImages([])
+    setTitle("");
+    setContent("");
+    setSelectedImages([]);
     setIsOpen(false);
   };
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
-      if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
+      if (
+        modalRef.current &&
+        !modalRef.current.contains(event.target as Node)
+      ) {
         closeModal();
       }
     };
 
-    document.addEventListener('mousedown', handleOutsideClick);
+    document.addEventListener("mousedown", handleOutsideClick);
 
     return () => {
-      document.removeEventListener('mousedown', handleOutsideClick);
+      document.removeEventListener("mousedown", handleOutsideClick);
     };
   }, []);
 
@@ -37,7 +40,7 @@ const ImageUploadModal: React.FC = () => {
     const files = Array.from(event.target.files || []);
     setSelectedImages(files);
 
-    const previewUrls = files.map((file) => URL.createObjectURL(file));
+    const previewUrls = files.map(file => URL.createObjectURL(file));
     setImagePreviews(previewUrls);
   };
 
@@ -53,36 +56,47 @@ const ImageUploadModal: React.FC = () => {
 
   const handleUpload = () => {
     console.log(selectedImages, title, content);
-    setTitle('')
-    setContent('')
-    setSelectedImages([])
+    setTitle("");
+    setContent("");
+    setSelectedImages([]);
     closeModal();
   };
 
   return (
     <div>
-      <button onClick={openModal} className="px-4 py-2 bg-blue-500 text-white rounded">
+      <button
+        onClick={openModal}
+        className="px-4 py-2 bg-blue-500 text-white rounded"
+      >
         Open Modal
       </button>
       {isOpen && (
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-          <div ref={modalRef} className="bg-white rounded w-[600px] h-[400px] pt-7 pb-7 pl-5 pr-5  flex flex-col">
+          <div
+            ref={modalRef}
+            className="bg-white rounded w-[600px] h-[400px] pt-7 pb-7 pl-5 pr-5  flex flex-col"
+          >
             <div className="flex justify-between">
               <div>강의 만들기 - 노트 만들기</div>
-              <button onClick={closeModal} className="float-right font-bold text-lg">×</button>
+              <button
+                onClick={closeModal}
+                className="float-right font-bold text-lg"
+              >
+                ×
+              </button>
             </div>
             <input
               placeholder="제목을 입력해주세요. (선택)"
               className="mt-2 mb-2 text-xs outline-none"
               value={title}
-              onChange={(e) => setTitle(e.target.value)}
+              onChange={e => setTitle(e.target.value)}
             />
             <div className="flex flex-col border border-E6E6E6 w-90 h-[230px] rounded p-3">
               <textarea
                 placeholder="내용을 입력해주세요."
                 className="text-xs w-90 h-[150px] resize-none outline-none"
                 value={content}
-                onChange={(e) => setContent(e.target.value)}
+                onChange={e => setContent(e.target.value)}
               />
               <div className="flex flex-row w-80">
                 <input

@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import React, { FC } from "react";
 
 interface VideoLectureProps {
-    content: string;
+  content: string;
 }
 
 const VideoLecture: FC<VideoLectureProps> = ({ content }) => {

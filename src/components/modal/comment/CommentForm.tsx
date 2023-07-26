@@ -6,14 +6,18 @@ interface CommentFormProps {
   handleClose: () => void;
 }
 
-const CommentForm: FC<CommentFormProps> = ({ isReply, handleComment, handleClose }) => {
+const CommentForm: FC<CommentFormProps> = ({
+  isReply,
+  handleComment,
+  handleClose,
+}) => {
   const [comment, setComment] = useState("");
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     handleComment(comment);
     setComment("");
-    if(!isReply) handleClose();
+    if (!isReply) handleClose();
   };
 
   const handleInputChange = (e: ChangeEvent<HTMLTextAreaElement>) => {

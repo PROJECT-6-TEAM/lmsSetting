@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
+import React, { FC } from "react";
 
 interface NoteLectureProps {
-    content: string;
-  }
+  content: string;
+}
 
 const NoteLecture: FC<NoteLectureProps> = ({ content }) => {
   const src = `https://www.youtube.com/embed/${content}`;
