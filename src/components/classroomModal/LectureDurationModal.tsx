@@ -7,7 +7,7 @@ import { resetInputContent } from "@/redux/contentSlice";
 import { resetInputTitle } from "@/redux/titleSlice";
 import { useDispatch } from "react-redux";
 import styles from "@/components/modal/DurationStyle.module.css";
-import { ModalSubmitButton } from "./common/ModalSubmitButton";
+//import { ModalSubmitButton } from "./common/ModalSubmitButton";
 import useClassroomModal from "@/hooks/useClassroomModal";
 import { closeModal } from "@/redux/slice/classroomModalSlice";
 

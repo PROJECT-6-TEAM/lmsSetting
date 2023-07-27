@@ -2,10 +2,11 @@ import React, { FC } from "react";
 import VideoLecture from "./VideoLecture";
 import NoteLecture from "./NoteLecture";
 import LinkLecture from "./LinkLecture";
+import type { LectureContent } from "@/types/firebase.Types";
 
 interface TypeOfLectureProps {
   type: string;
-  content: string;
+  content: LectureContent;
 }
 
 const TypeOfLecture: FC<TypeOfLectureProps> = ({ type, content }) => {
