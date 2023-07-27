@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
+import React, { FC } from "react";
 import type { LectureContent } from "@/types/firebase.Types";
 
 interface VideoLectureProps {
-    content: LectureContent;
+  content: LectureContent;
 }
 
 const VideoLecture: FC<VideoLectureProps> = ({ content }) => {

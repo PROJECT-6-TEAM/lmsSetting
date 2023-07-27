@@ -24,7 +24,10 @@ const LectureHome: FC<lectureIdProps> = ({ lectureId }) => {
         <LectureHeader />
         <div className="mainContainer flex w-full h-screen">
           <div className="Container flex flex-col w-3/4">
-            <TypeOfLecture type={data.lectureType} content={data.lectureContent} />
+            <TypeOfLecture
+              type={data.lectureType}
+              content={data.lectureContent}
+            />
             <LectureFooter />
           </div>
           <LectureComment />
